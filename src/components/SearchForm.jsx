@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-
 const SearchForm = () => {
   const [form, setForm] = useState({
     title: "",
@@ -8,16 +6,28 @@ const SearchForm = () => {
     genre: "",
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const validate = () => {
+    let isValid = false;
+
+    for (let [key, val] of Object.entries(form)) {
+      if (val && val.trim() && !isValid) {
+        isValid = true;
+      }
+    }
+    return isValid;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-
- 
+    const isValid = validate();
+    if (!isValid) {
+      alert("Please enter at least one field");
+      return;
+    }
   };
 
   return (
