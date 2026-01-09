@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import "./assets/styles/index.css";
+import "./assets/styles/navbar.css";
 import "./assets/styles/search.css";
 
 import App from "./App.jsx";
