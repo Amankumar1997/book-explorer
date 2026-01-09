@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchBooks } from "../features/books/booksSlice";
 const SearchForm = () => {
   const [form, setForm] = useState({
     title: "",
     author: "",
     genre: "",
   });
+  const dispatch = useDispatch();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +32,8 @@ const SearchForm = () => {
       alert("Please enter at least one field");
       return;
     }
+    dispatch(fetchBooks(form));
+
   };
 
   return (
