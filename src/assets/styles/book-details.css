@@ -5,7 +5,7 @@
   padding: 32px;
   border-radius: 14px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .book-details button {
@@ -15,6 +15,19 @@
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 20px;
+}
+
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* centers vertically */
+}
+
+.loading-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #4f46e5;
 }
 
 .book-header {
