@@ -6,17 +6,19 @@ import { STATUS } from "../app/constants";
 const SearchPage = () => {
   const { data, status, error } = useSelector((state) => state.books.books);
   const favorites = useSelector((state) => state.favorites);
+
+  {
+    status === STATUS.LOADING && <p className="loading-text">Loading...</p>;
+  }
+  {
+    error ? <div>{error}</div> : <></>;
+  }
   return (
     <div class="page-wrapper">
       <div className="search-page">
         <div className="search-form-wrapper">
           <SearchForm />
         </div>
-
-        {status === STATUS.LOADING && (
-          <p className="loading-text">Loading...</p>
-        )}
-        {error ? <div>{error}</div> : <></>}
 
         {data && data.length ? (
           <div className="books-grid">
