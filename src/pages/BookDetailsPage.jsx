@@ -44,7 +44,6 @@ const BookDetailsPage = () => {
     <div class="page-wrapper">
       <div className="book-details">
         <button onClick={() => navigate(-1)}>⬅ Back</button>
-
         <div className="book-header">
           <img
             src={imageLinks?.thumbnail}

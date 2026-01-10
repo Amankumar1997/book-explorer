@@ -1,0 +1,85 @@
+/* =========================
+   Navbar Base Styles
+   ========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: rgb(223, 223, 221);
+  padding: 14px 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Logo / Title */
+.navbar h2 {
+  font-size: 20px;
+  color: var(--color-primary);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Links Container */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+a.active {
+  color: red;
+}
+a.pending {
+  color: blue;
+}
+
+/* Links */
+.navbar-links a {
+  font-weight: 500;
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.navbar-links a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+    gap: 16px;
+  }
+
+  .navbar h2 {
+    font-size: 18px;
+  }
+
+  .navbar-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .navbar-links a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
