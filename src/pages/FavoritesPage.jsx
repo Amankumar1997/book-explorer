@@ -5,11 +5,22 @@ const FavoritesPage = () => {
   const favorites = useSelector((state) => state.favorites);
 
   return (
-    <div>
-      <h2>Favorites</h2>
-      {favorites.map((book) => (
-        <BookCard key={book.id} book={book} isFavorite />
-      ))}
+    <div className="page-wrapper">
+      <div className="search-page">
+        {favorites && favorites.length ? (
+          <div className="books-grid">
+            {favorites.map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                isFavorite={favorites.some((fav) => fav.id === book.id)}
+              />
+            ))}
+          </div>
+        ) : (
+          <div>No favorites found</div>
+        )}
+      </div>
     </div>
   );
 };
