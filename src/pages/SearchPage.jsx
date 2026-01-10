@@ -5,7 +5,8 @@ import { STATUS } from "../app/constants";
 
 const SearchPage = () => {
   const { data, status, error } = useSelector((state) => state.books.books);
-  const favorites = useSelector((state) => state.favorites);
+  const favorites = useSelector((state) => state.favorites.favorites);
+
 
   {
     status === STATUS.LOADING && <p className="loading-text">Loading...</p>;
