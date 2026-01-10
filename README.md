@@ -1,16 +1,42 @@
-# React + Vite
+Book Finder App (React + Redux Toolkit)
+A modern book search application built with React, Redux Toolkit, and React Router that allows users to search books using the Google Books API, view details, and manage their favorites.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
 
-Currently, two official plugins are available:
+1.  Search books by Title, Author, or Genre
+2.  Fetches data from Google Books API
+3.  Add & remove books from Favorites
+4.  Multi-page navigation using React Router
+5.  State management using Redux Toolkit
+6.  Unit testing with Vitest & React Testing Library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Testing Strategy
 
-## React Compiler
+1. Form submission test
+2. API call mocking using Axios
+3. UI rendering validation
+4. Redux state validation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Favorites Logic
+Favorites are managed via a dedicated Redux slice:
 
-## Expanding the ESLint configuration
+1. addFavorite(book)
+2. removeFavorite(bookId)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+This project shows:
+1. Real-world Redux architecture
+2. API handling
+3. Routing
+4. Component-based design
+5. Unit testing
+6) Production-ready project structure
+
+Installation
+git clone https://github.com/Amankumar1997/book-explorer.git or git@github.com:Amankumar1997/book-explorer.git
+cd book-explorer
+npm install
+npm run dev
+
+Run Tests
+npx vitest --watch
