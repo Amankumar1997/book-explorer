@@ -6,7 +6,6 @@ import { STATUS } from "../app/constants";
 const SearchPage = () => {
   const { data, status, error } = useSelector((state) => state.books.books);
   const favorites = useSelector((state) => state.favorites);
-  console.log(data);
   return (
     <div class="page-wrapper">
       <div className="search-page">
