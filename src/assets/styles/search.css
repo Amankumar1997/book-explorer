@@ -1,12 +1,14 @@
 
 .search-page {
-  padding: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 20px;
+
   display: flex;
-  justify-content: center; 
-  align-items: center;
+  flex-direction: column;  
+  align-items: stretch;    
 }
+
 
 .search-form-wrapper {
   margin-bottom: 30px;
@@ -17,6 +19,7 @@
   font-size: 16px;
   margin: 20px 0;
 }
+
 
 
 .search-form {
@@ -59,26 +62,23 @@
   justify-content: center; /* centers the cards */
 }
 
-
+/* 
 @media (max-width: 768px) {
   .search-page {
     padding: 16px;
   }
 
-  /* .search-form {
-    padding: 16px;
-    gap: 12px;
-    display: flex;
-  } */
+
+
   .search-form button {
     width: 100%;
   }
   .books-grid {
     gap: 16px;
   }
-}
+} */
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .search-form {
     grid-template-columns: 1fr;
   }
@@ -89,5 +89,17 @@
 
   .books-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-page {
+    max-width: 1400px;   /* ya 1600px */
+  }
+}
+
+@media (min-width: 1440px) {
+  .search-page {
+    max-width: 1600px;
   }
 }
