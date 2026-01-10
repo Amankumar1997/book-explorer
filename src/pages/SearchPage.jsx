@@ -33,7 +33,8 @@ const SearchPage = () => {
               </div>
             ) : (
               <>
-                <div>No data found</div>
+              <div className="no-data">No data found</div>
+
               </>
             )}
           </>

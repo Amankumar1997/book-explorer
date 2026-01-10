@@ -17,19 +17,6 @@
   margin-bottom: 20px;
 }
 
-.page-loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh; /* centers vertically */
-}
-
-.loading-text {
-  font-size: 18px;
-  font-weight: 500;
-  color: #4f46e5;
-}
-
 .book-header {
   display: flex;
   gap: 32px;
@@ -123,7 +110,7 @@
 
   .book-header img {
     position: sticky;
-    top: 100px; 
+    top: 100px;
   }
 
   .book-header h1 {
