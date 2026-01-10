@@ -3,6 +3,7 @@ import "./index.css";
 import "./assets/styles/index.css";
 import "./assets/styles/navbar.css";
 import "./assets/styles/search.css";
+import './assets/styles/book-details.css'
 
 import App from "./App.jsx";
 import { Provider } from "react-redux";
