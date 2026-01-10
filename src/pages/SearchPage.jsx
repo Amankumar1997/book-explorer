@@ -8,7 +8,7 @@ const SearchPage = () => {
   const favorites = useSelector((state) => state.favorites.favorites);
 
   return (
-    <div class="page-wrapper">
+    <div className="page-wrapper">
       <div className="search-page">
         <div className="search-form-wrapper">
           <SearchForm />
