@@ -9,7 +9,6 @@ const SearchForm = () => {
   });
   const dispatch = useDispatch();
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -33,7 +32,6 @@ const SearchForm = () => {
       return;
     }
     dispatch(fetchBooks(form));
-
   };
 
   return (
@@ -41,7 +39,7 @@ const SearchForm = () => {
       <input
         type="text"
         name="title"
-        placeholder="Title"
+        placeholder="Search by book title"
         value={form.title}
         onChange={handleChange}
       />
@@ -49,7 +47,7 @@ const SearchForm = () => {
       <input
         type="text"
         name="author"
-        placeholder="Author"
+        placeholder="Search by author name"
         value={form.author}
         onChange={handleChange}
       />
@@ -57,7 +55,7 @@ const SearchForm = () => {
       <input
         type="text"
         name="genre"
-        placeholder="Genre"
+        placeholder="Search by genre"
         value={form.genre}
         onChange={handleChange}
       />
