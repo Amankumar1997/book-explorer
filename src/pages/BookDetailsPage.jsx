@@ -16,9 +16,12 @@ const BookDetailsPage = () => {
   }, []);
 
   if (status === STATUS.LOADING) {
-    return <div>loadin....</div>;
+    return (
+      <div className="page-loader">
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
-
   if (!data) {
     return <p>Book details not found.</p>;
   }
@@ -41,63 +44,65 @@ const BookDetailsPage = () => {
   } = data.volumeInfo;
 
   return (
-    <div class="page-wrapper">
+    <div className="page-wrapper">
       <div className="book-details">
-        <button onClick={() => navigate(-1)}>⬅ Back</button>
-        <div className="book-header">
-          <img
-            src={imageLinks?.thumbnail}
-            alt={title}
-            style={{ width: "200px" }}
-          />
+        <>
+          <button onClick={() => navigate(-1)}>⬅ Back</button>
+          <div className="book-header">
+            <img
+              src={imageLinks?.thumbnail}
+              alt={title}
+              style={{ width: "200px" }}
+            />
 
-          <div>
-            <h1>{title}</h1>
-            <p>
-              <strong>Author:</strong> {authors?.join(", ") || "N/A"}
-            </p>
-            <p>
-              <strong>Publisher:</strong> {publisher || "N/A"}
-            </p>
-            <p>
-              <strong>Published:</strong> {publishedDate || "N/A"}
-            </p>
-            <p>
-              <strong>{` Links:  `}</strong>
-              <a href={previewLink} target="_blank" rel="noreferrer">
-                Preview Book
-              </a>
-            </p>
+            <div>
+              <h1>{title}</h1>
+              <p>
+                <strong>Author:</strong> {authors?.join(", ") || "N/A"}
+              </p>
+              <p>
+                <strong>Publisher:</strong> {publisher || "N/A"}
+              </p>
+              <p>
+                <strong>Published:</strong> {publishedDate || "N/A"}
+              </p>
+              <p>
+                <strong>{` Links:  `}</strong>
+                <a href={previewLink} target="_blank" rel="noreferrer">
+                  Preview Book
+                </a>
+              </p>
 
-            <br />
+              <br />
+            </div>
           </div>
-        </div>
 
-        <section>
-          <h3>Description</h3>
-          <p>{description || "No description available."}</p>
-        </section>
+          <section>
+            <h3>Description</h3>
+            <p>{description || "No description available."}</p>
+          </section>
 
-        <section>
-          <h3>Book Details</h3>
-          <ul>
-            <li>
-              <strong>Page Count:</strong> {pageCount || "N/A"}
-            </li>
-            <li>
-              <strong>Language:</strong> {language?.toUpperCase() || "N/A"}
-            </li>
-            <li>
-              <strong>Maturity Rating:</strong> {maturityRating}
-            </li>
-
-            {industryIdentifiers?.map((id) => (
-              <li key={id.identifier}>
-                <strong>{id.type}:</strong> {id.identifier}
+          <section>
+            <h3>Book Details</h3>
+            <ul>
+              <li>
+                <strong>Page Count:</strong> {pageCount || "N/A"}
               </li>
-            ))}
-          </ul>
-        </section>
+              <li>
+                <strong>Language:</strong> {language?.toUpperCase() || "N/A"}
+              </li>
+              <li>
+                <strong>Maturity Rating:</strong> {maturityRating}
+              </li>
+
+              {industryIdentifiers?.map((id) => (
+                <li key={id.identifier}>
+                  <strong>{id.type}:</strong> {id.identifier}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
       </div>
     </div>
   );
