@@ -1,6 +1,7 @@
 // Books slice reducer
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchBooksAPI } from "./booksAPI";
+import { fetchBooksAPI, getBookById } from "./booksAPI";
+
 
 export const fetchBooks = createAsyncThunk(
   "books/fetchBooks",
@@ -9,26 +10,56 @@ export const fetchBooks = createAsyncThunk(
   }
 );
 
+export const fetchBookById = createAsyncThunk(
+  "books/fetchBookById",
+  async (id) => {
+    return await getBookById(id);
+  }
+);
+
+
 const booksSlice = createSlice({
   name: "books",
   initialState: {
-    items: [],
-    status: "idle",
-    error: null,
+    books: {
+      data: null,
+      status: "idle",
+      error: null,
+    },
+    bookDetails: {
+      data: null,
+      status: "idle",
+      error: null,
+    },
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
+
+      /* ---------- book list---------- */
       .addCase(fetchBooks.pending, (state) => {
-        state.status = "loading";
+        state.books.status = "loading";
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.items = action.payload;
+        state.books.status = "succeeded";
+        state.books.data = action.payload;
       })
       .addCase(fetchBooks.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+        state.books.status = "failed";
+        state.books.error = action.error.message;
+      })
+
+      /* ---------- fetch book by id ---------- */
+      .addCase(fetchBookById.pending, (state) => {
+        state.bookDetails.status = "loading";
+      })
+      .addCase(fetchBookById.fulfilled, (state, action) => {
+        state.bookDetails.status = "succeeded";
+        state.bookDetails.data = action.payload;
+      })
+      .addCase(fetchBookById.rejected, (state, action) => {
+        state.bookDetails.status = "failed";
+        state.bookDetails.error = action.error.message;
       });
   },
 });

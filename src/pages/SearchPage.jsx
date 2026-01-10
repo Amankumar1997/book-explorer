@@ -1,30 +1,40 @@
 import { useSelector } from "react-redux";
 import SearchForm from "../components/SearchForm";
 import BookCard from "../components/BookCard";
+import { STATUS } from "../app/constants";
 
 const SearchPage = () => {
-  const { items, status } = useSelector((state) => state.books);
+  const { data, status, error } = useSelector((state) => state.books.books);
   const favorites = useSelector((state) => state.favorites);
-
+  console.log(data);
   return (
-  <div class="page-wrapper">
-    <div className="search-page">
-      <div className="search-form-wrapper">
-        <SearchForm />
-      </div>
+    <div class="page-wrapper">
+      <div className="search-page">
+        <div className="search-form-wrapper">
+          <SearchForm />
+        </div>
 
-      {status === "loading" && <p className="loading-text">Loading...</p>}
+        {status === STATUS.LOADING && (
+          <p className="loading-text">Loading...</p>
+        )}
+        {error ? <div>{error}</div> : <></>}
 
-      <div className="books-grid">
-        {items.map((book) => (
-          <BookCard
-            key={book.id}
-            book={book}
-            isFavorite={favorites.some((fav) => fav.id === book.id)}
-          />
-        ))}
+        {data && data.length ? (
+          <div className="books-grid">
+            {data?.map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                isFavorite={favorites.some((fav) => fav.id === book.id)}
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            <div>No data found</div>
+          </>
+        )}
       </div>
-    </div>
     </div>
   );
 };
