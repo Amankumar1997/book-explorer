@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { STATUS } from "../app/constants";
 import { fetchBookById } from "../features/books/booksSlice";
 
-const BookDetailsPage = (props) => {
+const BookDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { data, status, error } = useSelector(
     (state) => state.books.bookDetails
   );
@@ -21,6 +21,9 @@ const BookDetailsPage = (props) => {
 
   if (!data) {
     return <p>Book details not found.</p>;
+  }
+  if (error) {
+    return <div>{error}</div>;
   }
 
   const {
