@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "../features/favorites/favoritesSlice";
 import { Link } from "react-router"; 
+import React from "react";
 
 const BookCard = ({ book, isFavorite }) => {
   const dispatch = useDispatch();
@@ -43,4 +44,6 @@ const BookCard = ({ book, isFavorite }) => {
   );
 };
 
-export default BookCard;
+export default React.memo(BookCard, (prev, next) => {
+  return prev.book.id === next.book.id && prev.isFavorite === next.isFavorite;
+});
