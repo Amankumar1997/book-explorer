@@ -11,12 +11,33 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-   --nav-height: 70px;
+  --nav-height: 70px;
+}
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* disable global scroll */
 }
 .page-wrapper {
-  padding-top: var(--nav-height);
+  position: relative;
+  height: calc(100vh - var(--nav-height));
+  margin-top: var(--nav-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+}
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh; /* centers vertically */
 }
 
+.loading-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #4f46e5;
+}
 
 a {
   font-weight: 500;
@@ -27,11 +48,11 @@ a:hover {
   color: #535bf2;
 }
 
-
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 h1 {
